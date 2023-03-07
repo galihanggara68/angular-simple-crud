@@ -1,0 +1,51 @@
+<table class="table table-hover table-striped table-bordered">
+  <thead>
+    <tr>
+      <th class="text-center">Name</th>
+      <th class="text-center">Gender</th>
+      <th class="text-center">Birth Dt</th>
+      <th class="text-center">Salary</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Is RIP</th>
+      <th class="text-center">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr>
+      <td align="left"><a href="#">Test</a></td>
+      <td align="center">Male</td>
+      <td align="center">{{'2023-03-06T07:52:21.288Z' | date:'dd MMM YYYY'}}</td>
+      <td align="right">{{2000000 | currency:"Rp "}}</td>
+      <td align="left">Cimanggu</td>
+      <td align="center">No</td>
+      <td align="center" width="160">
+        <div class="form-inline">
+          <button class="btn btn-outline-primary m-1">Edit</button>
+          <button class="btn btn-danger m-1">Delete</button>
+        </div>
+      </td>
+    </tr> -->
+    <tr *ngFor="let customer of customers; let i = index">
+        <td align="left"><a href="#" (click)="onDetailCustomerHandler(i)">{{customer.name}}</a></td>
+        <td align="center">{{customer.gender}}</td>
+        <td align="center">{{customer.birthDate | date:'dd MMM YYYY'}}</td>
+        <td align="right">{{customer.salary | currency:'Rp '}}</td>
+        <td align="left">{{customer.address}}</td>
+        <td align="center">{{customer.isRip ? "Yes" : "No"}}</td>
+        <td align="center" width="160">
+          <div class="form-inline">
+            <button class="btn btn-outline-primary m-1" (click)="onEditCustomerHandler(i)">Edit</button>
+            <button class="btn btn-danger m-1" (click)="onDeleteCustomerHandler(i)">Delete</button>
+          </div>
+        </td>
+    </tr>
+    <tr *ngIf="customers.length == 0">
+      <td colspan="7">
+        <h3  class="text-center text-muted">
+          No Customer Data
+        </h3>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

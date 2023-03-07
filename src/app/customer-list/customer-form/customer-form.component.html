@@ -1,0 +1,59 @@
+<div class="form-group row m-2">
+  <label for="name" class="col-sm-2 col-form-label">Name</label>
+  <div class="col-sm-10">
+    <input type="text" [(ngModel)]="customer.name" class="form-control" id="name" placeholder="Name">
+  </div>
+</div>
+<fieldset class="form-group">
+  <div class="row m-2">
+    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input [(ngModel)]="customer.gender" class="form-check-input" type="radio" name="gender" id="gender1" value="Male" checked>
+        <label class="form-check-label" for="gender1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input [(ngModel)]="customer.gender" class="form-check-input" type="radio" name="gender" id="gender2" value="Female">
+        <label class="form-check-label" for="gender2">
+          Female
+        </label>
+      </div>
+    </div>
+  </div>
+</fieldset>
+<div class="form-group row m-2">
+  <label for="birthDate" class="col-sm-2 col-form-label">Birth Date</label>
+  <div class="col-sm-10">
+    <input type="date" [(ngModel)]="customer.birthDate" class="form-control" id="birthDate" placeholder="Birth Date">
+  </div>
+</div>
+<div class="form-group row m-2">
+  <label for="salary" class="col-sm-2 col-form-label">Salary</label>
+  <div class="col-sm-10">
+    <input type="number" [(ngModel)]="customer.salary" class="form-control" id="salary" placeholder="Salary">
+  </div>
+</div>
+<div class="form-group row m-2">
+  <label for="salary" class="col-sm-2 col-form-label">Address</label>
+  <div class="col-sm-10">
+    <textarea name="address" [(ngModel)]="customer.address" id="address" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+</div>
+<div class="form-group row m-2">
+  <div class="col-sm-2">Is RIP</div>
+  <div class="col-sm-10">
+    <div class="form-check">
+      <input class="form-check-input" [(ngModel)]="customer.isRip" type="checkbox" id="isRipCheckbox">
+      <label class="form-check-label" for="isRipCheckbox">
+        Is RIP
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-group float-right m-2">
+  <div class="">
+    <button type="submit" (click)="onSubmitCustomerHandler()" [ngClass]="{'btn-primary': isNewCustomer, 'btn-warning': !isNewCustomer}" class="btn btn-primary">{{isNewCustomer ? "Create Customer" : "Update Customer"}}</button>
+  </div>
+</div>
